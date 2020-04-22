@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "thread": "c",
+        "pthread.h": "c",
+        "set": "cpp",
+        "iosfwd": "cpp",
+        "iostream": "cpp"
+    }
+}

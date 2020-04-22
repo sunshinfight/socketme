@@ -1,0 +1,36 @@
+syntax="proto3";
+package jx;
+
+message ContactTran {
+    int32 ip = 1;
+    int32 port = 2;
+    int32 userId = 3;
+}
+
+enum BaseDatagramHeader {
+    ContactHeader = 0;
+    HelloHeader = 1;
+    MsgHeader = 2;
+    TextHeader = 3;
+}
+
+message MsgContent {
+    repeated bytes msgBody = 1;
+}
+
+message TextContent {
+    string textBody = 1;
+}
+
+message ContactsContent {
+    repeated ContactTran contact = 1;
+}
+
+message BaseDatagram {
+    BaseDatagramHeader header = 1;
+    oneof content {
+        MsgContent msg = 2;
+        ContactsContent contacts = 3;
+        TextContent text = 4;     
+    }
+}
